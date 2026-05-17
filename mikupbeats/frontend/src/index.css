@@ -1,0 +1,543 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Deep matte grey background - Version 98 exact match */
+    --background: oklch(0.12 0.01 270);
+    --foreground: oklch(0.98 0.0 270);
+
+    /* Solid card backgrounds - slightly lighter grey */
+    --card: oklch(0.16 0.01 270);
+    --card-foreground: oklch(0.98 0.0 270);
+
+    /* Popover/menu backgrounds - solid opaque */
+    --popover: oklch(0.18 0.01 270);
+    --popover-foreground: oklch(0.98 0.0 270);
+
+    /* Vivid purple primary - Version 98 exact match (#a970ff tone) */
+    --primary: oklch(0.68 0.2 290);
+    --primary-foreground: oklch(0.98 0.0 270);
+
+    /* Secondary grey tones - solid opaque */
+    --secondary: oklch(0.22 0.02 270);
+    --secondary-foreground: oklch(0.98 0.0 270);
+
+    /* Muted backgrounds - solid opaque */
+    --muted: oklch(0.22 0.02 270);
+    --muted-foreground: oklch(0.7 0.03 270);
+
+    /* Vivid purple accent - Version 98 exact match */
+    --accent: oklch(0.72 0.18 290);
+    --accent-foreground: oklch(0.98 0.0 270);
+
+    /* Destructive red */
+    --destructive: oklch(0.55 0.25 25);
+    --destructive-foreground: oklch(0.98 0.0 270);
+
+    /* Borders - subtle grey */
+    --border: oklch(0.28 0.03 270);
+    --input: oklch(0.28 0.03 270);
+
+    /* Ring color - vivid purple */
+    --ring: oklch(0.68 0.2 290);
+
+    --radius: 0.5rem;
+
+    /* Chart colors - purple variations */
+    --chart-1: oklch(0.68 0.2 290);
+    --chart-2: oklch(0.72 0.18 290);
+    --chart-3: oklch(0.64 0.18 285);
+    --chart-4: oklch(0.76 0.16 295);
+    --chart-5: oklch(0.6 0.2 280);
+  }
+
+  .dark {
+    /* Deep matte grey background - Version 98 exact match */
+    --background: oklch(0.12 0.01 270);
+    --foreground: oklch(0.98 0.0 270);
+
+    /* Solid card backgrounds - slightly lighter grey */
+    --card: oklch(0.16 0.01 270);
+    --card-foreground: oklch(0.98 0.0 270);
+
+    /* Popover/menu backgrounds - solid opaque */
+    --popover: oklch(0.18 0.01 270);
+    --popover-foreground: oklch(0.98 0.0 270);
+
+    /* Vivid purple primary - Version 98 exact match (#a970ff tone) */
+    --primary: oklch(0.68 0.2 290);
+    --primary-foreground: oklch(0.98 0.0 270);
+
+    /* Secondary grey tones - solid opaque */
+    --secondary: oklch(0.22 0.02 270);
+    --secondary-foreground: oklch(0.98 0.0 270);
+
+    /* Muted backgrounds - solid opaque */
+    --muted: oklch(0.22 0.02 270);
+    --muted-foreground: oklch(0.7 0.03 270);
+
+    /* Vivid purple accent - Version 98 exact match */
+    --accent: oklch(0.72 0.18 290);
+    --accent-foreground: oklch(0.98 0.0 270);
+
+    /* Destructive red */
+    --destructive: oklch(0.55 0.25 25);
+    --destructive-foreground: oklch(0.98 0.0 270);
+
+    /* Borders - subtle grey */
+    --border: oklch(0.28 0.03 270);
+    --input: oklch(0.28 0.03 270);
+
+    /* Ring color - vivid purple */
+    --ring: oklch(0.68 0.2 290);
+
+    /* Chart colors - purple variations */
+    --chart-1: oklch(0.68 0.2 290);
+    --chart-2: oklch(0.72 0.18 290);
+    --chart-3: oklch(0.64 0.18 285);
+    --chart-4: oklch(0.76 0.16 295);
+    --chart-5: oklch(0.6 0.2 280);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Force solid opaque backgrounds for all internal app overlays - NO TRANSPARENCY */
+@layer components {
+  /* Dialog overlays - solid opaque dark background */
+  [data-radix-dialog-overlay] {
+    background-color: oklch(0.08 0.01 270) !important;
+    backdrop-filter: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Dialog content - solid opaque card background */
+  [data-radix-dialog-content] {
+    background-color: oklch(0.16 0.01 270) !important;
+    border: 1px solid oklch(0.28 0.03 270) !important;
+    backdrop-filter: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Sheet (slide-out menu) overlays - solid opaque dark background */
+  [data-radix-sheet-overlay] {
+    background-color: oklch(0.08 0.01 270) !important;
+    backdrop-filter: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Sheet content - solid opaque card background */
+  [data-radix-sheet-content] {
+    background-color: oklch(0.16 0.01 270) !important;
+    border: 1px solid oklch(0.28 0.03 270) !important;
+    backdrop-filter: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Popover content - solid opaque */
+  [data-radix-popover-content] {
+    background-color: oklch(0.18 0.01 270) !important;
+    border: 1px solid oklch(0.28 0.03 270) !important;
+    backdrop-filter: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Dropdown menu content - solid opaque */
+  [data-radix-dropdown-menu-content] {
+    background-color: oklch(0.18 0.01 270) !important;
+    border: 1px solid oklch(0.28 0.03 270) !important;
+    backdrop-filter: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Select content - solid opaque */
+  [data-radix-select-content] {
+    background-color: oklch(0.18 0.01 270) !important;
+    border: 1px solid oklch(0.28 0.03 270) !important;
+    backdrop-filter: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Tooltip content - solid opaque */
+  [data-radix-tooltip-content] {
+    background-color: oklch(0.18 0.01 270) !important;
+    border: 1px solid oklch(0.28 0.03 270) !important;
+    backdrop-filter: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Alert dialog overlays - solid opaque dark background */
+  [data-radix-alert-dialog-overlay] {
+    background-color: oklch(0.08 0.01 270) !important;
+    backdrop-filter: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Alert dialog content - solid opaque card background */
+  [data-radix-alert-dialog-content] {
+    background-color: oklch(0.16 0.01 270) !important;
+    border: 1px solid oklch(0.28 0.03 270) !important;
+    backdrop-filter: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Context menu content - solid opaque */
+  [data-radix-context-menu-content] {
+    background-color: oklch(0.18 0.01 270) !important;
+    border: 1px solid oklch(0.28 0.03 270) !important;
+    backdrop-filter: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Hover card content - solid opaque */
+  [data-radix-hover-card-content] {
+    background-color: oklch(0.18 0.01 270) !important;
+    border: 1px solid oklch(0.28 0.03 270) !important;
+    backdrop-filter: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Navigation menu content - solid opaque */
+  [data-radix-navigation-menu-content] {
+    background-color: oklch(0.18 0.01 270) !important;
+    border: 1px solid oklch(0.28 0.03 270) !important;
+    backdrop-filter: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Drawer overlays - solid opaque dark background */
+  [data-vaul-drawer-wrapper] [data-vaul-overlay] {
+    background-color: oklch(0.08 0.01 270) !important;
+    backdrop-filter: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Drawer content - solid opaque card background */
+  [data-vaul-drawer] {
+    background-color: oklch(0.16 0.01 270) !important;
+    border: 1px solid oklch(0.28 0.03 270) !important;
+    backdrop-filter: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Command palette - solid opaque */
+  [cmdk-root] {
+    background-color: oklch(0.16 0.01 270) !important;
+    border: 1px solid oklch(0.28 0.03 270) !important;
+    backdrop-filter: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Sonner toasts - solid opaque */
+  [data-sonner-toast] {
+    background-color: oklch(0.16 0.01 270) !important;
+    border: 1px solid oklch(0.28 0.03 270) !important;
+    backdrop-filter: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Remove backdrop-blur from all cards */
+  .card {
+    backdrop-filter: none !important;
+    background-color: oklch(0.16 0.01 270) !important;
+  }
+
+  /* Ensure all UI component backgrounds are solid opaque */
+  .bg-card {
+    background-color: oklch(0.16 0.01 270) !important;
+    backdrop-filter: none !important;
+  }
+
+  .bg-popover {
+    background-color: oklch(0.18 0.01 270) !important;
+    backdrop-filter: none !important;
+  }
+
+  .bg-background {
+    background-color: oklch(0.12 0.01 270) !important;
+    backdrop-filter: none !important;
+  }
+
+  .bg-secondary {
+    background-color: oklch(0.22 0.02 270) !important;
+    backdrop-filter: none !important;
+  }
+
+  .bg-muted {
+    background-color: oklch(0.22 0.02 270) !important;
+    backdrop-filter: none !important;
+  }
+
+  /* Force opacity on all overlays */
+  [role="dialog"],
+  [role="alertdialog"],
+  [role="menu"],
+  [role="listbox"] {
+    opacity: 1 !important;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Existing Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-delay {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 20px rgba(169, 112, 255, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 40px rgba(169, 112, 255, 0.9));
+  }
+}
+
+@keyframes border-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(169, 112, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(169, 112, 255, 0.6);
+  }
+}
+
+@keyframes bounce-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Dynamic Home Sequence Animations */
+@keyframes studio-breathe {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.25;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes gradient-breathe {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-orb-1 {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(1) translate(0, 0);
+  }
+  33% {
+    opacity: 0.35;
+    transform: scale(1.1) translate(10px, -10px);
+  }
+  66% {
+    opacity: 0.3;
+    transform: scale(0.95) translate(-10px, 10px);
+  }
+}
+
+@keyframes pulse-orb-2 {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1) translate(0, 0);
+  }
+  33% {
+    opacity: 0.3;
+    transform: scale(0.9) translate(-15px, 15px);
+  }
+  66% {
+    opacity: 0.25;
+    transform: scale(1.15) translate(15px, -15px);
+  }
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(var(--float-x, 50px), var(--float-y, -100px))
+      scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes equipment-glow-1 {
+  0%,
+  100% {
+    opacity: 0.08;
+    filter: drop-shadow(0 0 15px oklch(0.68 0.2 290));
+  }
+  50% {
+    opacity: 0.15;
+    filter: drop-shadow(0 0 30px oklch(0.68 0.2 290));
+  }
+}
+
+@keyframes equipment-glow-2 {
+  0%,
+  100% {
+    opacity: 0.08;
+    filter: drop-shadow(0 0 15px oklch(0.72 0.18 290));
+  }
+  50% {
+    opacity: 0.15;
+    filter: drop-shadow(0 0 30px oklch(0.72 0.18 290));
+  }
+}
+
+/* Animation Classes */
+.animate-fade-in {
+  animation: fade-in 1s ease-out;
+}
+
+.animate-fade-in-delay {
+  animation: fade-in-delay 2s ease-out;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-border-glow {
+  animation: border-glow 3s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
+
+.animate-studio-breathe {
+  animation: studio-breathe 8s ease-in-out infinite;
+}
+
+.animate-gradient-breathe {
+  animation: gradient-breathe 6s ease-in-out infinite;
+}
+
+.animate-pulse-orb-1 {
+  animation: pulse-orb-1 12s ease-in-out infinite;
+}
+
+.animate-pulse-orb-2 {
+  animation: pulse-orb-2 15s ease-in-out infinite;
+}
+
+.animate-float-particle {
+  animation: float-particle 20s linear infinite;
+}
+
+.animate-equipment-glow-1 {
+  animation: equipment-glow-1 4s ease-in-out infinite;
+}
+
+.animate-equipment-glow-2 {
+  animation: equipment-glow-2 5s ease-in-out infinite 1s;
+}
+
+/* Page enter fade — applied on <main> wrapping all page routes */
+@keyframes page-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.page-enter {
+  animation: page-enter 200ms ease-out;
+}
+
+/* Skeleton placeholder blocks — solid opaque, Version 98 theme */
+@keyframes skeleton-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.skeleton-block {
+  background-color: oklch(0.22 0.02 270);
+  border-radius: 0.375rem;
+  animation: skeleton-pulse 1.6s ease-in-out infinite;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

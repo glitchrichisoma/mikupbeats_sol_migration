@@ -1,0 +1,42 @@
+services:
+  # Backend API — Node.js on Render
+  - type: web
+    name: mikupbeats-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: mikupbeats-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: ADMIN_EMAILS
+        sync: false
+      - key: B2_KEY_ID
+        sync: false
+      - key: B2_APP_KEY
+        sync: false
+      - key: B2_BUCKET_NAME
+        sync: false
+      - key: B2_ENDPOINT
+        sync: false
+      - key: B2_PUBLIC_URL
+        sync: false
+      - key: B2_REGION
+        value: us-west-004
+      - key: FRONTEND_URL
+        sync: false
+
+  # PostgreSQL Database
+databases:
+  - name: mikupbeats-db
+    databaseName: mikupbeats
+    user: mikupbeats
+    plan: free

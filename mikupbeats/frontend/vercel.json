@@ -1,0 +1,12 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "rewrites": [
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  ],
+  "env": {
+    "VITE_API_URL": "@mikupbeats_api_url",
+    "VITE_GOOGLE_CLIENT_ID": "@mikupbeats_google_client_id"
+  }
+}
